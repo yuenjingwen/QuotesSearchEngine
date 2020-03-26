@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'search/search.css' %}">
+
+    <head>
+        <h1>
+            Quotes Search
+        </h1>
+    </head>
+
+    <body style="background-color:lightyellow;">
+        <form method="post", name="search_query">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div>
+                <button type="submit">Search</button>
+            </div>
+        </form>
+    </body>
+
+</html>

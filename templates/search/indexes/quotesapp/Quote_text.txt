@@ -1,0 +1,8 @@
+
+{% verbatim %}
+{{ object.quote }}
+{{ object.author }}
+{{ object.tag }}
+{{ object.likes }}
+{{ object.image }}
+{% endverbatim %}
