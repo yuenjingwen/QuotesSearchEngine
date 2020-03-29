@@ -17,4 +17,4 @@ class QueryForm(forms.Form):
 
 
 class FilterForm(forms.Form):
-    filter_by = forms.CharField(label='Filter by:', widget=forms.Select(choices=FILTER_BY))
+    filter_by = forms.CharField(label='Filter by likes:', widget=forms.Select(choices=FILTER_BY))

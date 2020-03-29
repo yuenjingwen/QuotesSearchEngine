@@ -25,35 +25,53 @@ def searchView(request):
 
 def successView(request):
     start = datetime.datetime.now()
-    if request.method != 'POST':
+
+    query = request.session.get('form_query')
+    search_by = request.session.get('search_by')
+    if search_by=="quote":
+        api = 'http://localhost:8983/solr/quotes/select?q=quote%3A%22' + query + '%22&wt=json&rows=100000'
+    elif search_by=="author":
+        api = 'http://localhost:8983/solr/quotes/select?q=author%3A%22' + query + '%22&wt=json'
+    elif search_by=="tag":
+        api = 'http://localhost:8983/solr/quotes/select?q=tag%3A%22' + query + '%22&wt=json'
+    
+    filter_query = ""
+    if request.method == 'GET':
         form_filter = FilterForm()
-        query = request.session.get('form_query')
-        search_by = request.session.get('search_by')
-        if search_by=="quote":
-            api = 'http://localhost:8983/solr/quotes/select?q=quote%3A%22' + query + '%22&wt=json&rows=100000'
-        elif search_by=="author":
-            api = 'http://localhost:8983/solr/quotes/select?q=author%3A%22' + query + '%22&wt=json'
-        elif search_by=="tag":
-            api = 'http://localhost:8983/solr/quotes/select?q=tag%3A%22' + query + '%22&wt=json'
-        response = requests.get(api)
-        data = response.json()
-        data = data['response']['docs']
-        len_data = len(data)
-        end = datetime.datetime.now()
-        duration = (end - start).total_seconds()
-        duration = '{:g}'.format(float('{:.3g}'.format(duration)))
-        
-        
-        return render(request, 'success.html', {
-                'data': data,
-                'duration': duration,
-                'len_data': len_data
-            })
     else:
         form_filter = FilterForm(request.POST)
         if form_filter.is_valid():
-            filter_by = request.POST.get('filter_by')
-            print(filter_by)
+            try:
+                filter_choice = form_filter.cleaned_data['filter_by']
+                if filter_choice == "des":
+                    filter_query = "&sort=likes%" + "20desc"
+                elif filter_choice == "asc":
+                    filter_query = "&sort=likes%" + "20asc"
+                else:
+                    filter_query = ""
+            except BadHeaderError:
+                return HttpResponse('Invalid header found')
+                
+    api += filter_query
+    print(api)
+    response = requests.get(api)
+    data = response.json()
+    data = data['response']['docs']
+    len_data = len(data)
+
+    end = datetime.datetime.now()
+    duration = (end - start).total_seconds()
+    duration = '{:g}'.format(float('{:.3g}'.format(duration)))
+
+    result = render(request, 'success.html', {
+            'data': data,
+            'duration': duration,
+            'len_data': len_data,
+            'form_filter': form_filter
+        })
+    
+    return result
+
 
 
 

@@ -1,13 +1,14 @@
 <h2>QUOTE RESULTS</h2>
 <div>
-    Total of {{ len_data }} results ( {{ duration }} seconds)
-    <br />
+    <p>
+        Total of {{ len_data }} results ( {{ duration }} seconds)
+    </p>
+</div>
+<div>
     <form method="post", name="filter">
         {% csrf_token %}
-        {{ form_filter.as_p }}
-        <div>
-            <button type="submit">Search</button>
-        </div>
+        {{ form_filter }}
+        <button type="submit">Filter</button>
     </form>
 </div>
 <div>
