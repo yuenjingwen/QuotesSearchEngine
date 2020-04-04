@@ -7,8 +7,10 @@ SEARCH_BY = [
     ]
 
 FILTER_BY = [
-    ('asc', 'Ascending'),
-    ('des', 'Descending')
+    ('rel', 'Relevance'),
+    ('asc', 'Ascending Likes'),
+    ('des', 'Descending Likes')
+    
 ]
 
 class QueryForm(forms.Form):
@@ -17,4 +19,4 @@ class QueryForm(forms.Form):
 
 
 class FilterForm(forms.Form):
-    filter_by = forms.CharField(label='Filter by likes:', widget=forms.Select(choices=FILTER_BY))
+    filter_by = forms.CharField(label='Sort by:', widget=forms.Select(choices=FILTER_BY))

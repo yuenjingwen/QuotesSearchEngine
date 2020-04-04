@@ -1,6 +1,7 @@
 from django.core.mail import  BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.core.paginator import Paginator
 from .forms import QueryForm, FilterForm
 import requests, datetime
 import sys
