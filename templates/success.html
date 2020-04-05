@@ -4,41 +4,46 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'search/success.css' %}">
 
-<h2>QUOTE RESULTS</h2>
-<div>
-    <p>
-        Total of {{ len_data }} results ( {{ duration }} seconds)
-    </p>
-</div>
-<div>
-    <form method="post", name="filter">
-        {% csrf_token %}
-        {{ form_filter }}
-        <button type="submit">Filter</button>
-    </form>
-</div>
-<div class="all-quote-items">
-    {% for i in data %}
-    <div class="quote-item">
 
-        <div class="quote-details">
-        <p>
-            <div class="quote"> 
-                "{{ i.quote|first }}"
-            </div>    
-            <div class="quote-author">
-                 -- {{ i.author|first }} 
-            </div>    
-            <div class="quote-tag">
-                Category: {{ i.tag|first }}
-            </div>
-            <div class="quote-likes">
-                <div class="quote-number-of-likes"> {{ i.likes}} </div> likes
-            </div>
+<div class="all-quote-items">
+    <h2>Quotify Results</h2>
+    <div class="search-top-bar">
+        <div>
+            <p>
+                Total of {{ len_data }} results ( {{ duration }} seconds)
             </p>
         </div>
-        <div class="quote-image"> <img alt="" src={{ i.image|first }} > </div>
-        <!-- <hr> -->
+        <div class="sort-filter">
+            <form method="post", name="filter">
+                {% csrf_token %}
+                {{ form_filter }}
+                <button type="submit">Filter</button>
+            </form>
+        </div>
+    </div>
+    {% for i in data %}
+    <div class="quote-item">
+            <div class="main-details">
+                <div class="quote"> 
+                    "{{ i.quote|first }}"
+                </div>    
+                <div class="quote-author">
+                    -- {{ i.author|first }} 
+                </div>    
+            </div>
+            <div class="quote-image"> <img alt="" src={{ i.image|first }} > </div>
+
+            <hr>
+
+            <div class="additional-details">
+                <div class="quote-tag">
+                    Category: <br/> {{ i.tag|first }}
+                </div>
+                <div class="quote-likes">
+                    <div class="quote-number-of-likes"> {{ i.likes}} </div> likes
+                </div>
+            </div>
+
         </div>  
     {% endfor %}
 </div>
