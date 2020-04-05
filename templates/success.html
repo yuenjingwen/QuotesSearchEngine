@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'search/success.css' %}">
+
 <h2>QUOTE RESULTS</h2>
 <div>
     <p>
@@ -11,18 +17,29 @@
         <button type="submit">Filter</button>
     </form>
 </div>
-<div>
+<div class="all-quote-items">
     {% for i in data %}
-            <p>
-                <img alt="" src={{ i.image|first }} >
-                <br />
-                {{ i.quote|first }}
-                <br />
-                {{ i.author|first }}
-                <br />
-                {{ i.tag|first }}
-                <br />
-                {{ i.likes}}
+    <div class="quote-item">
+
+        <div class="quote-details">
+        <p>
+            <div class="quote"> 
+                "{{ i.quote|first }}"
+            </div>    
+            <div class="quote-author">
+                 -- {{ i.author|first }} 
+            </div>    
+            <div class="quote-tag">
+                Category: {{ i.tag|first }}
+            </div>
+            <div class="quote-likes">
+                <div class="quote-number-of-likes"> {{ i.likes}} </div> likes
+            </div>
             </p>
+        </div>
+        <div class="quote-image"> <img alt="" src={{ i.image|first }} > </div>
+        <!-- <hr> -->
+        </div>  
     {% endfor %}
 </div>
+</html>

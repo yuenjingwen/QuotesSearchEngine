@@ -1,23 +1,42 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
-    {% load static %}
+<div class="searchhtml background-image">
+    <div class="search-background">
     <link rel="stylesheet" type="text/css" href="{% static 'search/search.css' %}">
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
-    <head>
-        <h1>
-            Quotes Search
-        </h1>
-    </head>
+    <div class="header">
+        <head>
+            <h1>
+                Quotify
+            </h1>
+        </head>
+    </div>
 
-    <body style="background-color:lightyellow;">
-        <form method="post", name="search_query">
+    <body style="background-color:black;">
+        <div class="search_body">
+        <div class="search_form"> 
+                <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                <!-- <div class="right-inner-addon"> -->
+                <div class="right-inner-addon">
+                    <i class="fa fa-search w3-small"></i>
+                <!-- </div> -->
+    
+            <form method="post", name="search_query">
+            </div> 
+        </div>
             {% csrf_token %}
             {{ form.as_p }}
-            <div>
+        </div>
+            <div class="submit-background">
                 <button type="submit">Search</button>
             </div>
         </form>
-    </body>
 
+    </body>
+</div>
+</div>
 </html>

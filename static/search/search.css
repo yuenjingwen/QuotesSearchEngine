@@ -1,0 +1,128 @@
+html{
+    height:100%;
+}
+
+.searchhtml{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+    flex-direction:column;
+    text-align: center; 
+    background-size :cover;
+}
+
+
+
+.search-background{
+    color: white;   
+    font-family: 'Lato';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom:30px;
+}
+.header h1 {
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 35px;
+    display: flex;
+    margin-left: 25px;
+    
+}
+
+
+body {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 110%;
+    background-attachment: fixed;
+    vertical-align: middle; 
+    /* background: linear-gradient( #FFC0CB 50%, #00FFFF 50%); */
+    background-image: url("booksbackground11.png")
+}
+
+.search_form{
+    width:20px;
+}
+
+.right-inner-addon {
+    position: relative;
+    padding: 0px 150px;
+}
+
+.right-inner-addon i {
+    position: absolute;
+    right: 0px;
+    /* padding: 18px 12px; */
+    pointer-events: none;
+    color: darkgray;
+    right: -7px;
+    top: -7px;
+    
+}
+
+.search_body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+input#id_form_query {
+    width: 300px;
+    border-radius: 20px;
+    height: 30px;
+    padding: 4px 15px;
+    font-family: "Segoe UI";
+    font-size: 12px;
+    border:none;
+    margin-right: 20px;
+}
+
+label {
+    font-size: 14px;
+}
+
+select#id_search_by {
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+input#id_form_query:focus {
+    outline:none;
+}
+
+.submit-background {
+    display: flex;
+    justify-content: flex-end;
+    font-size:12px;
+    font-weight:800;
+}
+
+button {
+    background-color: #f4f1ea;
+    /* border-color: #ffffff; */
+    color: black;
+    border: none;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 800;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #6a4838;
+    color: white;
+    cursor: pointer;
+}
+
+
+head{
+    display:inline-block;
+    vertical-align: middle;
+}
