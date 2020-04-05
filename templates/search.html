@@ -18,23 +18,24 @@
 
     <body style="background-color:black;">
         <div class="search_body">
-        <div class="search_form"> 
-                <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                <div class="right-inner-addon">
-                    <i class="fa fa-search w3-large"></i>
-            <form method="post", name="search_query">
-            </div> 
-        </div>
+            <div class="search_form"> 
+                    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <div class="right-inner-addon">
+                        <i class="fa fa-search w3-large"></i>
+                <form method="post", name="search_query">
+                </div> 
+            </div>
             {% csrf_token %}
             {{ form.as_p }}
         </div>
-            <div class="submit-background">
-                <button type="submit">Search</button>
-            </div>
+        <div class="submit-background">
+            <button type="submit">Search</button>
+        </div>
         </form>
 
     </body>
+    </div>
 </div>
-</div>
+
 </html>
