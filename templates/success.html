@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    <!-- <link rel="icon" href="http://www.yoursite.com/favicon.ico" /> -->
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'search/success.css' %}">
 
 
+
+<body style="background-color: #f4f1ea">
 <div class="all-quote-items">
     <h2>Quotify Results</h2>
     <div class="search-top-bar">
@@ -13,7 +16,7 @@
                 Total of {{ len_data }} results ( {{ duration }} seconds)
             </p>
         </div>
-        <div class="sort-filter">
+        <div class="dropdown sort-filter">
             <form method="post", name="filter">
                 {% csrf_token %}
                 {{ form_filter }}
@@ -49,4 +52,5 @@
     </div>  
     {% endfor %}
 </div>
+</body>
 </html>

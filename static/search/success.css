@@ -3,6 +3,7 @@ html {
     font-family: "Segoe UI";
 }
 
+
 h2 {
     font-size:45px;
     margin-top: 60px;
@@ -18,6 +19,7 @@ select#id_filter_by {
     margin-left: 5px;
     font-size: 14px;
 }
+
 button {
     background-color: #6a4838;
     border: none;
@@ -55,7 +57,20 @@ button:hover{
 .sort-filter{
     display:flex;
     justify-content: flex-end;
+    
     align-items: flex-end;
+    flex-direction:row;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+}
+select#id_filter_by {
+    margin-left: 5px;
+    font-size: 14px;
+    width: 170px;
+    margin-right:10px
 }
 
 .main-details{

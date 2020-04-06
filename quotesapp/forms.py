@@ -15,8 +15,8 @@ FILTER_BY = [
 
 class QueryForm(forms.Form):
     form_query = forms.CharField(label="", widget=forms.TextInput(attrs={'placeholder': 'Find a quote by a word, phrase, author, tag..'}), required=False)
-    search_by = forms.CharField(label='Search by:', widget=forms.Select(choices=SEARCH_BY))
+    search_by = forms.CharField(label='Search by:', widget=forms.Select(attrs={'class': 'form-control'}, choices=SEARCH_BY))
 
 
 class FilterForm(forms.Form):
-    filter_by = forms.CharField(label='Sort by:', widget=forms.Select(choices=FILTER_BY))
+    filter_by = forms.CharField(label='Sort by:', widget=forms.Select(attrs={'class': 'form-control'}, choices=FILTER_BY))

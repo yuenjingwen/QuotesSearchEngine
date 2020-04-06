@@ -1,15 +1,21 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <div class="searchhtml background-image">
-    <div class="search-background">
-    <link rel="stylesheet" type="text/css" href="{% static 'search/search.css' %}">
-    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <div class="search-background mb-6">
+
 
     <div class="header">
         <head>
-            <h1>
+            <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    <!-- <link rel="icon" href="http://www.yoursite.com/favicon.ico" /> -->
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">        
+          {% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'search/search.css' %}">
+
+            <h1 class="mb-4">
                 Quotify
             </h1>
 
@@ -17,20 +23,19 @@
     </div>
 
     <body style="background-color:black;">
-        <div class="search_body">
+        <div class="search_body mb-3">
             <div class="search_form"> 
-                    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
                     <div class="right-inner-addon">
                         <i class="fa fa-search w3-large"></i>
                 <form method="post", name="search_query">
                 </div> 
             </div>
             {% csrf_token %}
-            {{ form.as_p }}
+            <div class="query_field">{{ form.form_query }}</div>
+            <div class="dropdown ml-0"> {{form.search_by}} </div>
         </div>
         <div class="submit-background">
-            <button type="submit">Search</button>
+            <button style="background-color: #f4f1ea; color: black;" class="btn btn-secondary search-button" type="submit">Search</button>
         </div>
         </form>
 
